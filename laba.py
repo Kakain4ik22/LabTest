@@ -46,57 +46,92 @@
 
 #лаба 4
 
-import random
+# import random
 
-def create_files():
-    for i in range(1, 4):
-        with open(f'file_{i}.txt', 'w') as f:
-            numbers = [random.randint(1, 100) for _ in range(10)]
-            f.write(' '.join(map(str, numbers)) + '\n')
-    print("Файлы созданы: file_1.txt, file_2.txt, file_3.txt")
+# def create_files():
+#     for i in range(1, 4):
+#         with open(f'file_{i}.txt', 'w') as f:
+#             numbers = [random.randint(1, 100) for _ in range(10)]
+#             f.write(' '.join(map(str, numbers)) + '\n')
+#     print("Файлы созданы: file_1.txt, file_2.txt, file_3.txt")
 
-def read_file(filename):
-    try:
-        with open(filename, 'r') as f:
-            contents = f.readlines()
-            # Преобразуем содержимое в список чисел
-            numbers = [int(num) for line in contents for num in line.split()]
-            average = sum(numbers) / len(numbers) if numbers else 0
-            print(f"Содержимое файла {filename}:")
-            print(' '.join(map(str, numbers)))
-            print(f"Среднее значение: {average}")
-    except FileNotFoundError:
-        print(f"Файл {filename} не найден")
-    except ValueError as e:
-        print(f"Ошибка обработки данных в файле {filename}: {e}")
+# def read_file(filename):
+#     try:
+#         with open(filename, 'r') as f:
+#             contents = f.readlines()
+#             # Преобразуем содержимое в список чисел
+#             numbers = [int(num) for line in contents for num in line.split()]
+#             average = sum(numbers) / len(numbers) if numbers else 0
+#             print(f"Содержимое файла {filename}:")
+#             print(' '.join(map(str, numbers)))
+#             print(f"Среднее значение: {average}")
+#     except FileNotFoundError:
+#         print(f"Файл {filename} не найден")
+#     except ValueError as e:
+#         print(f"Ошибка обработки данных в файле {filename}: {e}")
 
-def write_to_file(filename):
-    numbers = input("Введите числа через пробел для записи в файл: ")
-    numbers_list = list(map(int, numbers.split()))
-    with open(filename, 'a') as f:
-        f.write(' '.join(map(str, numbers_list)) + '\n')
-    print(f"Числа записаны в файл {filename}.")
+# def write_to_file(filename):
+#     numbers = input("Введите числа через пробел для записи в файл: ")
+#     numbers_list = list(map(int, numbers.split()))
+#     with open(filename, 'a') as f:
+#         f.write(' '.join(map(str, numbers_list)) + '\n')
+#     print(f"Числа записаны в файл {filename}.")
 
-def main():
-    create_files()
+# def main():
+#     create_files()
 
-    while True:
-        action = input("\nВыберите действие: \n1. Прочитать файл \n2. Записать в файл \n3. Выход \nВаш выбор: ")
+#     while True:
+#         action = input("\nВыберите действие: \n1. Прочитать файл \n2. Записать в файл \n3. Выход \nВаш выбор: ")
 
-        if action == '1':
-            filename = input("Введите имя файла для чтения: ")
-            read_file(filename)
-        elif action == '2':
-            filename = input("Введите имя файла для записи: ")
-            write_to_file(filename)
-        elif action == '3':
-            print("Выход из программы")
-            break
-        else:
-            print("Неверный выбор")
+#         if action == '1':
+#             filename = input("Введите имя файла для чтения: ")
+#             read_file(filename)
+#         elif action == '2':
+#             filename = input("Введите имя файла для записи: ")
+#             write_to_file(filename)
+#         elif action == '3':
+#             print("Выход из программы")
+#             break
+#         else:
+#             print("Неверный выбор")
 
-if __name__ == "__main__":
-    main()
+# if __name__ == "__main__":
+#     main()
+
+# Лаба 5
+
+
+def say_hello(name):
+    print(f"Привет, {name}!")
+
+say_hello("Мир")  
+
+
+class Animal:
+    def __init__(self, name, sound):
+        self.name = name
+        self.sound = sound
+
+    def make_sound(self):
+        print(f"{self.name} издает звук: {self.sound}")
+
+
+cat = Animal("Кошка", "Мяу")
+cat.make_sound()
+
+
+class Dog(Animal):
+    def __init__(self, name, sound, breed):
+        super().__init__(name, sound)
+        self.breed = breed
+
+    def show_breed(self):
+        print(f"Это собака породы: {self.breed}")
+
+
+dog = Dog("Собака", "Гав", "Лабрадор")
+dog.make_sound()  # Унаследованный метод
+dog.show_breed()  # Метод второго класса
         
 
 

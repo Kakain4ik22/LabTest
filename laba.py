@@ -1,3 +1,7 @@
+# лаба 1
+
+# print("hello world")
+
 # лаба 2
 
 # a = int(input("Введите первое число: "))
@@ -44,7 +48,7 @@
 # print(n[0])
 
 
-#лаба 4
+# лаба 4
 
 # import random
 
@@ -98,7 +102,7 @@
 # if __name__ == "__main__":
 #     main()
 
-# Лаба 5
+# лаба 5
 
 # def say_hello(name):
 #     print(f"Привет, {name}!")
@@ -132,7 +136,7 @@
 # dog.make_sound()  # Унаследованный метод
 # dog.show_breed()  # Метод второго класса
         
-#Лаба 6
+# лаба 6
 
 import tkinter as tk
 from tkinter import filedialog, messagebox

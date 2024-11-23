@@ -100,11 +100,150 @@
 
 # Лаба 5
 
+# def say_hello(name):
+#     print(f"Привет, {name}!")
 
+# say_hello("Мир")  
+
+
+# class Animal:
+#     def __init__(self, name, sound):
+#         self.name = name
+#         self.sound = sound
+
+#     def make_sound(self):
+#         print(f"{self.name} издает звук: {self.sound}")
+
+
+# cat = Animal("Кошка", "Мяу")
+# cat.make_sound()
+
+
+# class Dog(Animal):
+#     def __init__(self, name, sound, breed):
+#         super().__init__(name, sound)
+#         self.breed = breed
+
+#     def show_breed(self):
+#         print(f"Это собака породы: {self.breed}")
+
+
+# dog = Dog("Собака", "Гав", "Лабрадор")
+# dog.make_sound()  # Унаследованный метод
+# dog.show_breed()  # Метод второго класса
+        
+#Лаба 6
+
+import tkinter as tk
+from tkinter import filedialog, messagebox
+import random
+
+
+# Лаба 2: Арифметические операции
+def calculate_operations():
+    try:
+        a = int(entry_a.get())
+        b = int(entry_b.get())
+        result = ""
+
+        result += f"Сложение: {a + b}\n"
+        result += f"Вычитание: {a - b}\n"
+        result += f"Умножение: {a * b}\n"
+        result += f"Возведение в степень: {a ** b}\n"
+
+        if b == 0:
+            result += "Деление: на ноль делить нельзя\n"
+        else:
+            result += f"Деление: {a / b}\n"
+            result += f"Целочисленное деление: {a // b}\n"
+
+        messagebox.showinfo("Результаты", result)
+    except ValueError:
+        messagebox.showerror("Ошибка", "Введите корректные числа!")
+
+
+# Лаба 3: Работа со списками
+def generate_random_list():
+    n = [random.randint(0, 10) for _ in range(10)]
+    total_sum = sum(n)
+    sorted_list = sorted(n)
+    reverse_sorted_list = sorted(n, reverse=True)
+    largest = max(n)
+    smallest = min(n)
+
+    result = f"Список: {n}\n"
+    result += f"Сумма: {total_sum}\n"
+    result += f"Отсортированный: {sorted_list}\n"
+    result += f"Обратная сортировка: {reverse_sorted_list}\n"
+    result += f"Максимум: {largest}\n"
+    result += f"Минимум: {smallest}\n"
+
+    messagebox.showinfo("Список", result)
+
+
+# Лаба 4: Работа с файлами
+def create_files():
+    for i in range(1, 4):
+        with open(f'file_{i}.txt', 'w') as f:
+            numbers = [random.randint(1, 100) for _ in range(10)]
+            f.write(' '.join(map(str, numbers)) + '\n')
+    messagebox.showinfo("Файлы", "Созданы файлы: file_1.txt, file_2.txt, file_3.txt")
+
+
+def read_file():
+    filename = filedialog.askopenfilename(title="Выберите файл", filetypes=[("Text files", "*.txt")])
+    if not filename:
+        return
+
+    try:
+        with open(filename, 'r') as f:
+            contents = f.readlines()
+            numbers = [int(num) for line in contents for num in line.split()]
+            average = sum(numbers) / len(numbers) if numbers else 0
+
+        result = f"Содержимое файла: {numbers}\nСреднее значение: {average}"
+        messagebox.showinfo("Чтение файла", result)
+    except FileNotFoundError:
+        messagebox.showerror("Ошибка", "Файл не найден!")
+    except ValueError as e:
+        messagebox.showerror("Ошибка", f"Ошибка обработки данных: {e}")
+
+
+def write_to_file():
+    filename = filedialog.asksaveasfilename(title="Сохранить файл", defaultextension=".txt",
+                                            filetypes=[("Text files", "*.txt")])
+    if not filename:
+        return
+
+    numbers = entry_numbers.get()
+    try:
+        numbers_list = list(map(int, numbers.split()))
+        with open(filename, 'a') as f:
+            f.write(' '.join(map(str, numbers_list)) + '\n')
+        messagebox.showinfo("Запись в файл", "Числа успешно записаны!")
+    except ValueError:
+        messagebox.showerror("Ошибка", "Введите корректные числа через пробел!")
+
+
+# Лаба 5: Классы и методы
+def show_hello_message():
+    say_hello("Мир")
+
+
+def show_animal_info():
+    cat = Animal("Кошка", "Мяу")
+    cat.make_sound()
+
+
+def show_dog_info():
+    dog = Dog("Собака", "Гав", "Лабрадор")
+    dog.make_sound()
+    dog.show_breed()
+
+
+# Лаба 5: Классы
 def say_hello(name):
-    print(f"Привет, {name}!")
-
-say_hello("Мир")  
+    messagebox.showinfo("Приветствие", f"Привет, {name}!")
 
 
 class Animal:
@@ -113,11 +252,7 @@ class Animal:
         self.sound = sound
 
     def make_sound(self):
-        print(f"{self.name} издает звук: {self.sound}")
-
-
-cat = Animal("Кошка", "Мяу")
-cat.make_sound()
+        messagebox.showinfo("Животное", f"{self.name} издает звук: {self.sound}")
 
 
 class Dog(Animal):
@@ -126,12 +261,52 @@ class Dog(Animal):
         self.breed = breed
 
     def show_breed(self):
-        print(f"Это собака породы: {self.breed}")
+        messagebox.showinfo("Собака", f"Это собака породы: {self.breed}")
 
 
-dog = Dog("Собака", "Гав", "Лабрадор")
-dog.make_sound()  # Унаследованный метод
-dog.show_breed()  # Метод второго класса
-        
+# Создание GUI
+root = tk.Tk()
+root.title("Лабораторные работы")
 
+# Лаба 2
+frame_lab2 = tk.LabelFrame(root, text="Лаба 2: Арифметические операции")
+frame_lab2.pack(fill="both", expand="yes", padx=10, pady=5)
+
+tk.Label(frame_lab2, text="Первое число:").pack()
+entry_a = tk.Entry(frame_lab2)
+entry_a.pack()
+
+tk.Label(frame_lab2, text="Второе число:").pack()
+entry_b = tk.Entry(frame_lab2)
+entry_b.pack()
+
+tk.Button(frame_lab2, text="Рассчитать", command=calculate_operations).pack()
+
+# Лаба 3
+frame_lab3 = tk.LabelFrame(root, text="Лаба 3: Работа со списками")
+frame_lab3.pack(fill="both", expand="yes", padx=10, pady=5)
+
+tk.Button(frame_lab3, text="Сгенерировать список", command=generate_random_list).pack()
+
+# Лаба 4
+frame_lab4 = tk.LabelFrame(root, text="Лаба 4: Работа с файлами")
+frame_lab4.pack(fill="both", expand="yes", padx=10, pady=5)
+
+tk.Button(frame_lab4, text="Создать файлы", command=create_files).pack()
+tk.Button(frame_lab4, text="Прочитать файл", command=read_file).pack()
+
+tk.Label(frame_lab4, text="Введите числа для записи (через пробел):").pack()
+entry_numbers = tk.Entry(frame_lab4)
+entry_numbers.pack()
+tk.Button(frame_lab4, text="Записать в файл", command=write_to_file).pack()
+
+# Лаба 5
+frame_lab5 = tk.LabelFrame(root, text="Лаба 5: Классы и методы")
+frame_lab5.pack(fill="both", expand="yes", padx=10, pady=5)
+
+tk.Button(frame_lab5, text="Сказать привет", command=show_hello_message).pack()
+tk.Button(frame_lab5, text="Показать информацию о кошке", command=show_animal_info).pack()
+tk.Button(frame_lab5, text="Показать информацию о собаке", command=show_dog_info).pack()
+
+root.mainloop()
 

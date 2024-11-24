@@ -138,6 +138,8 @@
         
 # лаба 6
 
+# лаба 6
+
 import tkinter as tk
 from tkinter import filedialog, messagebox
 import random
@@ -146,6 +148,7 @@ import random
 
 # Лаба 2: Арифметические операции
 def calculate_operations():
+
     try:
         a = int(entry_a.get())
         b = int(entry_b.get())

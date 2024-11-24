@@ -149,6 +149,11 @@ import random
 # Лаба 2: Арифметические операции
 def calculate_operations():
 
+    """
+    Выполняет арифметические операции (сложение, вычитание, умножение, деление и т. д.) над двумя числами,
+    введенными пользователем. Результаты отображаются в окне сообщения.
+    """
+
     try:
         a = int(entry_a.get())
         b = int(entry_b.get())
@@ -172,6 +177,12 @@ def calculate_operations():
 
 # Лаба 3: Работа со списками
 def generate_random_list():
+
+    """
+    Генерирует случайный список из 10 чисел, вычисляет его сумму, сортирует и находит
+    минимальные и максимальные значения. Результаты отображаются в окне сообщения.
+    """
+
     n = [random.randint(0, 10) for _ in range(10)]
     total_sum = sum(n)
     sorted_list = sorted(n)
@@ -191,6 +202,12 @@ def generate_random_list():
 
 # Лаба 4: Работа с файлами
 def create_files():
+
+    """
+    Создает три текстовых файла (file_1.txt, file_2.txt, file_3.txt), каждый из которых
+    содержит 10 случайных чисел. Показывает сообщение об успешном создании файлов.
+    """
+
     for i in range(1, 4):
         with open(f'file_{i}.txt', 'w') as f:
             numbers = [random.randint(1, 100) for _ in range(10)]
@@ -199,6 +216,12 @@ def create_files():
 
 
 def read_file():
+
+    """
+    Открывает выбранный текстовый файл, считывает его содержимое, вычисляет среднее значение
+    чисел в файле и отображает их в окне сообщения.
+    """
+
     filename = filedialog.askopenfilename(title="Выберите файл", filetypes=[("Text files", "*.txt")])
     if not filename:
         return
@@ -218,6 +241,12 @@ def read_file():
 
 
 def write_to_file():
+
+    """
+    Сохраняет введенные пользователем числа в текстовый файл. Если числа не являются
+    корректными, показывает сообщение об ошибке.
+    """
+
     filename = filedialog.asksaveasfilename(title="Сохранить файл", defaultextension=".txt",
                                             filetypes=[("Text files", "*.txt")])
     if not filename:
@@ -235,15 +264,30 @@ def write_to_file():
 
 # Лаба 5: Классы и методы
 def show_hello_message():
+
+    """
+    Показывает приветственное сообщение с именем "Мир".
+    """
+
     say_hello("Мир")
 
 
 def show_animal_info():
+
+    """
+    Создает объект класса Animal (Кошка) и показывает сообщение о его звуке.
+    """
+
     cat = Animal("Кошка", "Мяу")
     cat.make_sound()
 
 
 def show_dog_info():
+
+    """
+    Создает объект класса Dog (Собака) и показывает сообщение о его звуке и породе.
+    """
+
     dog = Dog("Собака", "Гав", "Лабрадор")
     dog.make_sound()
     dog.show_breed()
@@ -251,24 +295,68 @@ def show_dog_info():
 
 # Лаба 5: Классы
 def say_hello(name):
+
+    """
+    Показывает приветственное сообщение для указанного имени.
+    
+    :param name: Имя для приветствия.
+    """
+
     messagebox.showinfo("Приветствие", f"Привет, {name}!")
 
 
 class Animal:
+
+    """
+    Класс Animal представляет животное с именем и звуком.
+    """
+
     def __init__(self, name, sound):
+
+        """
+        Создает животное.
+        
+        :param name: Имя животного.
+        :param sound: Звук, который издает животное.
+        """
+
         self.name = name
         self.sound = sound
 
     def make_sound(self):
+
+        """
+        Показывает сообщение со звуком, который издает животное.
+        """
+
         messagebox.showinfo("Животное", f"{self.name} издает звук: {self.sound}")
 
 
 class Dog(Animal):
+
+    """
+    Класс Dog наследует Animal и добавляет информацию о породе собаки.
+    """
+
     def __init__(self, name, sound, breed):
+
+        """
+        Создает собаку.
+        
+        :param name: Имя собаки.
+        :param sound: Звук, который издает собака.
+        :param breed: Порода собаки.
+        """
+
         super().__init__(name, sound)
         self.breed = breed
 
     def show_breed(self):
+
+        """
+        Показывает сообщение с информацией о породе собаки.
+        """
+
         messagebox.showinfo("Собака", f"Это собака породы: {self.breed}")
 
 

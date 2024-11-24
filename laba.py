@@ -138,8 +138,6 @@
         
 # лаба 6
 
-# лаба 6
-
 import tkinter as tk
 from tkinter import filedialog, messagebox
 import random

@@ -102,7 +102,7 @@
 # if __name__ == "__main__":
 #     main()
 
-# лаба 5
+# # лаба 5
 
 # def say_hello(name):
 #     print(f"Привет, {name}!")
@@ -136,13 +136,23 @@
 # dog.make_sound()  # Унаследованный метод
 # dog.show_breed()  # Метод второго класса
         
-# лаба 6
+# # лаба 6
 
 import tkinter as tk
 from tkinter import filedialog, messagebox
 import random
 
 #test
+
+# Лаба 1: Введение в Python
+
+def hello_world():
+
+    """
+    Выводит приветственное сообщение "Hello World" в консоль.
+    """
+
+    messagebox.showinfo("Сообщение", "Hello World")
 
 # Лаба 2: Арифметические операции
 def calculate_operations():
@@ -361,6 +371,12 @@ class Dog(Animal):
 # Создание GUI
 root = tk.Tk()
 root.title("Лабораторные работы")
+
+# Лаба 1
+frame_lab1 = tk.LabelFrame(root, text="Лаба 1: Приветственное сообщение")
+frame_lab1.pack(fill="both", expand="yes", padx=10, pady=5)
+
+tk.Button(frame_lab1, text="Запустить сообщение", command=hello_world).pack()
 
 # Лаба 2
 frame_lab2 = tk.LabelFrame(root, text="Лаба 2: Арифметические операции")

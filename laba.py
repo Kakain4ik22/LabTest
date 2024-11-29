@@ -146,7 +146,6 @@
 # dog.show_breed()  # Метод второго класса
         
 # лаба 6
-
 import tkinter as tk
 from tkinter import filedialog, messagebox
 import random

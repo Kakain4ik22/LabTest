@@ -151,9 +151,6 @@ import tkinter as tk
 from tkinter import filedialog, messagebox
 import random
 
-
-
-
 # Лаба 1: Введение в Python
 
 def hello_world():

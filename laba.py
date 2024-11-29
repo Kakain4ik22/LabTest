@@ -48,7 +48,7 @@
 # print(n[0])
 
 
-# лаба 4
+# лаба4
 
 import random
 

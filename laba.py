@@ -97,10 +97,10 @@ def main():
         action = input("\nВыберите действие: \n1. Прочитать файл \n2. Записать в файл \n3. Выход \nВаш выбор: ")
 
         if action == '1':
-            filename = input("Введите имя файла для чтения: ")
+            # filename = input("Введите имя файла для чтения: ")
             read_file()
         elif action == '2':
-            filename = input("Введите имя файла для записи: ")
+            # filename = input("Введите имя файла для записи: ")
             write_to_file()
         elif action == '3':
             print("Выход из программы")

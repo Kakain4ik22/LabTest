@@ -375,6 +375,8 @@ class Dog(Animal):
         messagebox.showinfo("Собака", f"Это собака породы: {self.breed}")
 
 
+
+
 # Создание GUI
 root = tk.Tk()
 root.title("Лабораторные работы")

@@ -153,6 +153,7 @@ import random
 
 #test
 
+
 # Лаба 1: Введение в Python
 
 def hello_world():

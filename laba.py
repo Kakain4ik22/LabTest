@@ -381,13 +381,13 @@ root.title("Лабораторные работы")
 
 # Лаба 1
 frame_lab1 = tk.LabelFrame(root, text="Лаба 1: Приветственное сообщение")
-frame_lab1.pack(fill="both", expand="yes", padx=10, pady=5)
+frame_lab1.pack(fill="both", expand="yes", padx=15, pady=20)
 
 tk.Button(frame_lab1, text="Запустить сообщение", command=hello_world).pack()
 
 # Лаба 2
 frame_lab2 = tk.LabelFrame(root, text="Лаба 2: Арифметические операции")
-frame_lab2.pack(fill="both", expand="yes", padx=10, pady=5)
+frame_lab2.pack(fill="both", expand="yes", padx=15, pady=20)
 
 tk.Label(frame_lab2, text="Первое число:").pack()
 entry_a = tk.Entry(frame_lab2)
@@ -401,13 +401,13 @@ tk.Button(frame_lab2, text="Рассчитать", command=calculate_operations)
 
 # Лаба 3
 frame_lab3 = tk.LabelFrame(root, text="Лаба 3: Работа со списками")
-frame_lab3.pack(fill="both", expand="yes", padx=10, pady=5)
+frame_lab3.pack(fill="both", expand="yes", padx=15, pady=20)
 
 tk.Button(frame_lab3, text="Сгенерировать список", command=generate_random_list).pack()
 
 # Лаба 4
 frame_lab4 = tk.LabelFrame(root, text="Лаба 4: Работа с файлами")
-frame_lab4.pack(fill="both", expand="yes", padx=10, pady=5)
+frame_lab4.pack(fill="both", expand="yes", padx=15, pady=20)
 
 tk.Button(frame_lab4, text="Создать файлы", command=create_files).pack()
 tk.Button(frame_lab4, text="Прочитать файл", command=read_file).pack()
@@ -419,7 +419,7 @@ tk.Button(frame_lab4, text="Записать в файл", command=write_to_file
 
 # Лаба 5
 frame_lab5 = tk.LabelFrame(root, text="Лаба 5: Классы и методы")
-frame_lab5.pack(fill="both", expand="yes", padx=10, pady=5)
+frame_lab5.pack(fill="both", expand="yes", padx=15, pady=20)
 
 tk.Button(frame_lab5, text="Сказать привет", command=show_hello_message).pack()
 tk.Button(frame_lab5, text="Показать информацию о кошке", command=show_animal_info).pack()

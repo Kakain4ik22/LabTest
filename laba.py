@@ -151,7 +151,7 @@ import tkinter as tk
 from tkinter import filedialog, messagebox
 import random
 
-#test
+
 
 
 # Лаба 1: Введение в Python

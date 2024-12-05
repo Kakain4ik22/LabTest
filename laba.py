@@ -427,37 +427,65 @@
 
 # root.mainloop()
 
-import requests
-from tkinter import Tk, Label
+# Лаба 9
 
-apiKey="7653bfd4f505f804dc6d729e27d99c04"
-city="Ulyanovsk"
-url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={apiKey}&units=metric"
+# import requests
 
-def fetch_weather():
-    try:
-        # Запрос к OpenWeatherMap API
-        response = requests.get(url)
-        response.raise_for_status()  # Проверка на ошибки HTTP
-        data = response.json()
+# apiKey="7653bfd4f505f804dc6d729e27d99c04"
+# city="Ulyanovsk"
+# url = f"https://api.openweathermap.org/data/2.5/weather?lat={54.3269}&lon={48.3934}&appid={apiKey}"
 
-        # Получение температуры
-        temp = data["main"]["temp"]
-        description = data["weather"][0]["description"]
 
-        return f"Температура в {city}: {temp}°C\nОписание: {description}"
-    except requests.exceptions.RequestException as e:
-        return f"Ошибка соединения: {e}"
-    except KeyError:
-        return "Ошибка в данных API!"
+# response = requests.get(url)
+# data = response.json()
 
-# Создание GUI
-root = Tk()
-root.title("Погода")
-root.geometry("300x150")
 
-# Добавление виджета с погодой
-weather_label = Label(root, text=fetch_weather(), font=("Arial", 12), justify="left")
-weather_label.pack(pady=20)
+# temperature_in_celsius = data['main']['temp'] - 273.15
 
-root.mainloop()
+# print(f"Температура в {city}: {temperature_in_celsius:.2f}°C")
+
+# Лаба 10
+
+# import sqlite3
+
+# # 1. Инициализация базы данных
+# connection = sqlite3.connect("database_lab10.db")
+# cursor = connection.cursor()
+
+# # 2. Создание связанных таблиц
+# cursor.execute("""
+# CREATE TABLE IF NOT EXISTS authors (
+#     id INTEGER PRIMARY KEY AUTOINCREMENT,
+#     name TEXT NOT NULL
+# )
+# """)
+# cursor.execute("""
+# CREATE TABLE IF NOT EXISTS books (
+#     id INTEGER PRIMARY KEY AUTOINCREMENT,
+#     title TEXT NOT NULL,
+#     author_id INTEGER,
+#     FOREIGN KEY (author_id) REFERENCES authors (id)
+# )
+# """)
+
+# # 3. Наполнение базы данных
+# cursor.execute("INSERT INTO authors (name) VALUES (?)", ("J.K. Rowling",))
+# cursor.execute("INSERT INTO books (title, author_id) VALUES (?, ?)", ("Harry Potter", 1))
+
+# connection.commit()
+
+# # 4. Выборочное чтение данных
+# cursor.execute("SELECT books.title, authors.name FROM books INNER JOIN authors ON books.author_id = authors.id")
+# rows = cursor.fetchall()
+# for row in rows:
+#     print(f"Book: {row[0]}, Author: {row[1]}")
+
+# # Закрытие соединения
+# connection.close()
+
+
+
+
+
+
+
